@@ -1,0 +1,7 @@
+export const FETCH_EMPLOYEE_REQUEST = 'FETCH_EMPLOYEE_REQUEST'
+export const CREATE_EMPLOYEE_REQUEST = 'CREATE_EMPLOYEE_REQUEST'
+export const CREATE_EMPLOYEE_SUCCESS = 'CREATE_EMPLOYEE_SUCCESS'
+export const FETCH_EMPLOYEE_SUCCESS = 'FETCH_EMPLOYEE_SUCCESS'
+export const FETCH_EMPLOYEE_FAILURE = 'FETCH_EMPLOYEE_FAILURE'
+export const Authenticate_Employee_Success = 'Authenticate_Employee_Success'
+export const Authenticate_Employee_Failure = 'Authenticate_Employee_Failure'
