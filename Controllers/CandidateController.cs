@@ -79,7 +79,7 @@ namespace Job.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpPut]///
         [Route("Update/")]
         public IActionResult UpdateCandidateItem(CandidateItem item)
         {
