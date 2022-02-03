@@ -4,7 +4,7 @@ const Employees  = (props) => {
   //  const employees = useSelector(state => props.state.employees);
     //const dispatch = useDispatch();
     useEffect(() => {
-        
+        // write code to fetch candidates and show below list of candidates
     }, [] );
 
     return (
@@ -12,6 +12,7 @@ const Employees  = (props) => {
                     <div>
                         List of candidates
                     </div>
+
          </div>
     )
 }

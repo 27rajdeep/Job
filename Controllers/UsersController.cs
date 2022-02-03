@@ -29,24 +29,7 @@ namespace Job.Controllers
         [HttpPost("authenticate")]
         public IActionResult Authenticate(AuthenticateRequest model)
         {
-
-            var user = new User
-            {
-                Id = "609c255a984ac587bc7f35e4",
-                FirstName = "Tom",
-                LastName = "Cruise",
-                Username = "TomCruise"
-            };
-            var obj = new AuthenticateResponse(user, "token") { };
-            var json = Json(obj);
-            return Ok(json);
-
-            //var response = _userService.Authenticate(model);
-            //if (response == null)
-            //{
-            //    return Unauthorized(new { message = "Username or password is incorrect" });
-            //}
-
+            // Uncomment below commented code when you dont want to use userServer and database
             //var user = new User
             //{
             //    Id = "609c255a984ac587bc7f35e4",
@@ -57,6 +40,24 @@ namespace Job.Controllers
             //var obj = new AuthenticateResponse(user, "token") { };
             //var json = Json(obj);
             //return Ok(json);
+
+            var response = _userService.Authenticate(model);
+            if (response == null)
+            {
+                return Unauthorized(new { message = "Username or password is incorrect" });
+            }
+
+            //var user = new User
+            //{
+            //    Id = "609c255a984ac587bc7f35e4",
+            //    FirstName = "Tom",
+            //    LastName = "Cruise",
+            //    Username = "TomCruise"
+            //};
+            //var obj = new AuthenticateResponse(user, "token") { };
+            //var json = Json(obj);
+            var json = Json(response);
+            return Ok(json);
 
             //var dummy = Json({"id":"609c255a984ac587bc7f35e4","userId":"5fc3af4198c5d7d2acbc4b8a","name":"Arjun","year":0,"courseId":null,"formFile":null}"
         }

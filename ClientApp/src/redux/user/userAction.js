@@ -40,13 +40,14 @@ export  const   authenticateUsers  =  (loginInfo) => {
     return async (dispatch) => {
         dispatch(fetchUsersRequest)
         let response = await genericCall('users/authenticate', loginInfo, 'post')
-        if( response && (response.status === 200)){
-                        const token = response.data.token;
-                        localStorage.setItem('token', token);
-                        localStorage.setItem('userId', response.data.id);
-                        localStorage.setItem('userName', response.data.username);
-                        dispatch(logonUser(response.data), token)
-                        }
+        if (response && (response.status === 200)) {
+            var authData = response.data.value
+            const token = authData.token;
+            localStorage.setItem('token', token);
+            localStorage.setItem('userId', authData.id);
+            localStorage.setItem('userName', authData.username);
+            dispatch(logonUser(authData), token)
+        }
         else if(response && (response.status === 500)){
             dispatch(authenticateUserFailure(response.error))
         }
